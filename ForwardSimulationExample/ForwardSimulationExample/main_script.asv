@@ -1,0 +1,20 @@
+import org.opensim.modeling.*
+model_filename = 'gait9dof18musc_Thelen_BigSpheres_20160914.osim';
+
+osimModel = Model(model_filename);
+osimModel.setUseVisualizer(true);
+init_state = [0; 0; 4.941; 2.0; 0; 0; 0; 0; 0; 0];
+
+state = osimModel.initSystem;
+
+editableCoordSet = osimModel.updCoordinateSet();
+
+
+for i = 0 : editableCoordSet.getSize()-1
+        editableCoordSet.get(i).setValue(state, init_state(i+1));
+end
+
+manager = Manager(osimModel);
+finalTime = 10;
+manager.initialize( state );
+manager.integrate( finalTime );
