@@ -1,2 +1,4 @@
 opensim_env/
 *.zip
+ForwardSimulationExample/ForwardSimulationExample/Geometry
+BalanceOptimization/BalanceOptimizationSpring23/Geometry
